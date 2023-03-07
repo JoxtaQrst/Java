@@ -1,10 +1,12 @@
+import java.util.Objects;
+
 public class Road {
     private String name;
-    private RoadType type;
+    private String type;
     private int length;
     private int speed_limit;
 
-    public Road(String name, RoadType type, int length, int speed_limit) {
+    public Road(String name, String type, int length, int speed_limit) {
         this.name = name;
         this.type = type;
         this.length = length;
@@ -19,11 +21,11 @@ public class Road {
         this.name = name;
     }
 
-    public RoadType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(RoadType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -37,6 +39,13 @@ public class Road {
 
     public int getSpeed_limit() {
         return speed_limit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Road road)) return false;
+        return getLength() == road.getLength() && getSpeed_limit() == road.getSpeed_limit() && getName().equals(road.getName()) && getType().equals(road.getType());
     }
 
     public void setSpeed_limit(int speed_limit) {
