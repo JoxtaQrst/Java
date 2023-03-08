@@ -5,24 +5,16 @@ public class Homework {
     public static void main(String[] argc){
         //LATIN MATRIX
         Scanner input = new Scanner(System.in);
-        int number;
+        int number=0;
         try{
-            int integer= input.nextInt();
+            int integer= Integer.parseInt(argc[0]);
             System.out.println("You entered an integer " + integer);
-            while(integer<=2)
-            {
-                System.out.println("Number not valid. Write another number!");
-                integer= input.nextInt();
-            }
             number=integer;
         }
-        catch (InputMismatchException e)
+        catch (Exception e)
         {
-            String stringer= input.next();
-            throw new IllegalArgumentException(stringer + " is not a integer!");
+            System.out.println("Not an integer!");
         }
-        input.close();
-        System.out.println("Correct integer " + number);
         int k=number + 1; //rotation point
         int i=0;
         int[][] LatinMatrix = new int[number][number];

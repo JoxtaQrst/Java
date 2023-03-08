@@ -5,6 +5,8 @@ public class Road {
     private String type;
     private int length;
     private int speed_limit;
+    private String pointA;
+    private String pointB;
 
     public Road(String name, String type, int length, int speed_limit) {
         this.name = name;
@@ -13,6 +15,10 @@ public class Road {
         this.speed_limit = speed_limit;
     }
 
+    public void setRoad(String A,String B){
+        this.pointA=A;
+        this.pointB=B;
+    }
     public String getName() {
         return name;
     }
