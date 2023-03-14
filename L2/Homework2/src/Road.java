@@ -1,5 +1,4 @@
 import java.util.Objects;
-
 public class Road {
     private String name;
     private String type;
