@@ -1,8 +1,19 @@
+import java.util.Objects;
+
 public abstract class Location {
     private String name;
     private String type;
     private int X;
     private int Y;
+
+    /**
+     * Constructor for Location class
+     *
+     * @param name location name
+     * @param type location type
+     * @param x    coordinate
+     * @param y    coordinate
+     */
     public  Location(String name, String type, int x, int y){
         this.name=name;
         this.type=type;
@@ -41,6 +52,11 @@ public abstract class Location {
         this.Y = y;
     }
 
+    /**
+     * Override function that prints the Location with its attributes
+     *
+     * @return the Object with its attributes as a string
+     */
     @java.lang.Override
     public java.lang.String toString() {
         return "Location{" +
@@ -50,11 +66,21 @@ public abstract class Location {
                 ", Y=" + Y +
                 '}';
     }
+
+    /**
+     * Functions that verifies if 2 objects in the same class are equal
+     *
+     * @param o class object
+     * @return TRUE if they are equal, FALSE otherwise
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Location location)) return false;
-        return getX() == location.getX() && getY() == location.getY() && getName().equals(location.getName()) && getType() == location.getType();
+        return getX()== location.getX() &&
+                getY()== location.getY() &&
+                Objects.equals(getName(), location.getName()) &&
+                Objects.equals(getType(), location.getType());
     }
 
 }
