@@ -6,14 +6,14 @@ public class City extends Location {
     /**
      * Constructor for City class, uses the Location superclass
      *
-     * @param name of the city
-     * @param x coordinate
-     * @param y coordinate
+     * @param name       of the city
+     * @param x          coordinate
+     * @param y          coordinate
      * @param population city
      */
-    public City(String name, int x, int y,int population) {
+    public City(String name, int x, int y, int population) {
         super(name, "CITY", x, y);
-        this.population=population;
+        this.population = population;
     }
 
     /**
@@ -30,7 +30,6 @@ public class City extends Location {
     }
 
     /**
-     *
      * @return the Object with its attributes as a string, uses the
      * .toString function from its superclass and adds the population
      */

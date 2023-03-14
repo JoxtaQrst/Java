@@ -23,10 +23,11 @@ public class Road {
         return pointB;
     }
 
-    public void setRoad(Location A, Location B){
-        this.pointA=A;
-        this.pointB=B;
+    public void setRoad(Location A, Location B) {
+        this.pointA = A;
+        this.pointB = B;
     }
+
     public String getName() {
         return name;
     }

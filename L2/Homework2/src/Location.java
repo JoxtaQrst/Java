@@ -14,24 +14,26 @@ public abstract class Location {
      * @param x    coordinate
      * @param y    coordinate
      */
-    public  Location(String name, String type, int x, int y){
-        this.name=name;
-        this.type=type;
-        this.X=x;
-        this.Y=y;
+    public Location(String name, String type, int x, int y) {
+        this.name = name;
+        this.type = type;
+        this.X = x;
+        this.Y = y;
     }
 
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
+
     public int getX() {
         return X;
     }
+
     public int getY() {
         return Y;
     }
+
     public String getType() {
         return type;
     }
@@ -77,8 +79,8 @@ public abstract class Location {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Location location)) return false;
-        return getX()== location.getX() &&
-                getY()== location.getY() &&
+        return getX() == location.getX() &&
+                getY() == location.getY() &&
                 Objects.equals(getName(), location.getName()) &&
                 Objects.equals(getType(), location.getType());
     }
