@@ -1,7 +1,7 @@
 import java.awt.geom.Point2D;
 import java.util.*;
 
-public class Main {
+public class Problem {
 
     /**
      * Main method for running the program and testing the solution
