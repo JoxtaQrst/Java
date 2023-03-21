@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="542d8e05-b4d1-437f-b7bd-213b2a7429fc" name="Changes" comment="Lab 3 Main">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/L3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Company.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Person.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework/Homework3/src/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework/Homework3/src/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework/Homework3/src/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework/Homework3/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/Homework3/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +45,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/Users/pinte/Documents/Java",
+    "last_opened_file_path": "C:/Users/pinte/Documents/Java/L3/Homework",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,6 +53,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pinte\Documents\Java\L3\Homework\Homework3\src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,6 +70,7 @@
       <workItem from="1678831685067" duration="47000" />
       <workItem from="1678858469972" duration="8000" />
       <workItem from="1678862582591" duration="2563000" />
+      <workItem from="1679254141483" duration="111000" />
     </task>
     <task id="LOCAL-00001" summary="Lab 3">
       <created>1678831614304</created>
