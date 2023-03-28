@@ -1,48 +1,36 @@
 package org.example;
 
+import com.github.javafaker.Faker;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
+    static Faker faker = new Faker();
     public static void main(String[] args) {
-        var students = IntStream.rangeClosed(0, 3)
-                .mapToObj(i -> new Student("S" + i) )
-                .toArray(Student[]::new);
-        var projects = IntStream.rangeClosed(0, 3)
-                .mapToObj(i -> new Project("P" + i) )
-                .toArray(Project[]::new);
-
-        List<Student> listOfStudents=new ArrayList<>();
-        listOfStudents.addAll(Arrays.asList(students));
-
-        List<Student>newSortedList=listOfStudents.stream()
-                .sorted(Comparator.comparing(Student::getName))
-                .collect(Collectors.toList());
-
-        Map<Student,List<Project>> prefMap = new HashMap<>();
-        prefMap.put(students[0], Arrays.asList(projects[0],projects[1],projects[2]));
-        prefMap.put(students[2], Arrays.asList(projects[0]));
-        prefMap.put(students[1], Arrays.asList(projects[0],projects[1]));
+        var students = IntStream.rangeClosed(0, 2)
+                .mapToObj(i -> new Student(faker.name().fullName())).toArray(Student[]::new);
+        var projects = IntStream.rangeClosed(0, 2)
+                .mapToObj(i -> new Project(faker.leagueOfLegends().champion())).toArray(Project[]::new);
 
 
-        for(Student student:prefMap.keySet())
-        {
-            System.out.print(student.getName()+" prefers: ");
-            List<Project> prefferedProjects = prefMap.get(student);
-            for(Project project : prefferedProjects)
-            {
-                System.out.print("  " + project.getName());
-            }
-            System.out.println();
-        }
+        projectAllocation finalProjects = new projectAllocation(List.of(students), List.of(projects));
+        finalProjects.addStudent(students[0],Arrays.asList(projects[0],projects[1],projects[2]));
+        finalProjects.addStudent(students[1],Arrays.asList(projects[0],projects[1]));
+        finalProjects.addStudent(students[2],Arrays.asList(projects[0]));
 
-        listOfStudents.stream().filter(s -> prefMap.get(s) != null && prefMap.get(s).contains(projects[0])).forEach(System.out::println);
+        finalProjects.getAllStudents();
         List<Project> target = Arrays.asList(projects[1],projects[2]);
-        List<Student> result = listOfStudents.stream().filter(s->prefMap.get(s) != null && prefMap.get(s).containsAll(target)).collect(Collectors.toList());
-        for(Student student:result)
+        finalProjects.getStudentsHaving(target);
+        System.out.println();
+        
+        Map<Student,List<Project>> doneProjects = new HashMap<>();
+        doneProjects =finalProjects.assignProjects(projects);
+        for(Map.Entry<Student, List<Project>> liste : doneProjects.entrySet())
         {
-            System.out.println(student.getName());
+            System.out.println(liste.getKey().getName()+" will play "+liste.getKey().getProjectName());
         }
+
     }
 }

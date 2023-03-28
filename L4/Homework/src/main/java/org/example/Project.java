@@ -15,8 +15,6 @@ public class Project implements Comparable<Project>{
 
     @Override
     public String toString() {
-        return "Project{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

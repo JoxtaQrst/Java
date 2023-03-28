@@ -1,9 +1,8 @@
 package org.example;
-import java.util.List;
 
 public class Student implements Comparable<Student> {
     private final String name;
-    //private final List<Project> projectList;
+    private Project project;
     public Student(String name){
         this.name=name;
     }
@@ -12,6 +11,18 @@ public class Student implements Comparable<Student> {
         return name;
     }
 
+    public void setProject (Project project)
+    {
+        this.project=project;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public String getProjectName() {
+        return project.getName();
+    }
 
     @Override
     public int compareTo(Student o) {
