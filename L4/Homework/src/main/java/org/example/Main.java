@@ -2,24 +2,47 @@ package org.example;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
-        List<Student>studentList=Arrays.asList(
-                new Student("S0",Arrays.asList(new Project("P0"),new Project("P1"),new Project("P2"))),
-                new Student("S1",Arrays.asList(new Project("P0"),new Project("P1"))),
-                new Student("S2",Arrays.asList(new Project("P0")))
-        );
-        TreeSet<Project> projectTreeSet= studentList.stream()
-                .flatMap(student -> student.getProjectList().stream())
-                .collect(Collectors.toCollection(TreeSet::new));
+        var students = IntStream.rangeClosed(0, 3)
+                .mapToObj(i -> new Student("S" + i) )
+                .toArray(Student[]::new);
+        var projects = IntStream.rangeClosed(0, 3)
+                .mapToObj(i -> new Project("P" + i) )
+                .toArray(Project[]::new);
 
-        LinkedList<Student>sortedStudents = new LinkedList<>(studentList);
-        sortedStudents.sort(Student::compareTo);
-        System.out.println("Students sorted by name: ");
-        sortedStudents.forEach(System.out::println);
+        List<Student> listOfStudents=new ArrayList<>();
+        listOfStudents.addAll(Arrays.asList(students));
 
-        System.out.println("Project sorted by name: ");
-        projectTreeSet.forEach(System.out::println);
+        List<Student>newSortedList=listOfStudents.stream()
+                .sorted(Comparator.comparing(Student::getName))
+                .collect(Collectors.toList());
+
+        Map<Student,List<Project>> prefMap = new HashMap<>();
+        prefMap.put(students[0], Arrays.asList(projects[0],projects[1],projects[2]));
+        prefMap.put(students[2], Arrays.asList(projects[0]));
+        prefMap.put(students[1], Arrays.asList(projects[0],projects[1]));
+
+
+        for(Student student:prefMap.keySet())
+        {
+            System.out.print(student.getName()+" prefers: ");
+            List<Project> prefferedProjects = prefMap.get(student);
+            for(Project project : prefferedProjects)
+            {
+                System.out.print("  " + project.getName());
+            }
+            System.out.println();
+        }
+
+        listOfStudents.stream().filter(s -> prefMap.get(s) != null && prefMap.get(s).contains(projects[0])).forEach(System.out::println);
+        List<Project> target = Arrays.asList(projects[1],projects[2]);
+        List<Student> result = listOfStudents.stream().filter(s->prefMap.get(s) != null && prefMap.get(s).containsAll(target)).collect(Collectors.toList());
+        for(Student student:result)
+        {
+            System.out.println(student.getName());
+        }
     }
 }

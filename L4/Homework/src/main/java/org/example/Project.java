@@ -1,3 +1,4 @@
+package org.example;
 public class Project implements Comparable<Project>{
     private final String name;
     public Project(String name){
