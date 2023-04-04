@@ -9,7 +9,15 @@ public class projectAllocation {
     private final List<Project> projects;
     private final Map<Student,List<Project>> prefMap = new HashMap<>();
 
-    public projectAllocation(List<Student> students,List<Project> projects)
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public Map<Student, List<Project>> getPrefMap() {
+        return prefMap;
+    }
+
+    public projectAllocation(List<Student> students, List<Project> projects)
     {
        this.students=students;
        this.projects=projects;
