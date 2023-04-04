@@ -33,7 +33,7 @@ public class Main {
         network.addNode(d1);
         network.addNode(d2);
         network.addNode(p1);
-        network.addNode(p1);
+        network.addNode(p2);
         network.addNode(c1);
         network.addNode(c2);
         network.addNode(c3);

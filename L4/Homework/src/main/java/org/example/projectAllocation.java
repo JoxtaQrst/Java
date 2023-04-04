@@ -51,57 +51,34 @@ public class projectAllocation {
         }
     }
 
-    public Map<Student, List<Project>> assignProjects (Project[] projects)
+    public Map<Student, Project> assignProjects (Project[] projects)
     {
         int projectNumber= projects.length;
         int i=0;
         Map<Project,Boolean> isAssigned = new HashMap<>();
+        Map<Student,Project> finalAssignation = new HashMap<>();
         for(Project project : projects)
         {
             isAssigned.put(project,false);
         }
+
+        List<Student> sortedStudents = new ArrayList<>(prefMap.keySet());
+        sortedStudents.sort(Comparator.comparingInt(student -> prefMap.get(student).size()));
         // facem un map sa verificam daca proiectele sunt diponibile sau nu
 
-        for(Map.Entry<Student,List<Project>> entry : prefMap.entrySet())
-        {
-            Student student = entry.getKey(); // ii luam numele studentului
-            List<Project> availableProjects = entry.getValue(); // ii luam numele projectelor
+        for (Student student : sortedStudents) {
+            List<Project> availableProjects = prefMap.get(student);
 
-            for(Project project : availableProjects)
-            {
-                if(!isAssigned.get(project))
-                {
+            for (Project project : availableProjects) {
+                if (!isAssigned.get(project)) {
                     student.setProject(project);
-                    isAssigned.put(project,true);
+                    finalAssignation.put(student,project);
+                    isAssigned.put(project, true);
                     break;
                 }
             }
         }
-        List<Student> freeStudents = new ArrayList<>();
-        for (Map.Entry<Student, List<Project>> entry : prefMap.entrySet()) {
-            Student student = entry.getKey();
-            if (student.getProject() == null) {
-                freeStudents.add(student);
-            }
-        }
-        int unassignedStudents = freeStudents.size();
-        int remainingProjects = projectNumber - ( unassignedStudents + 1);
-        for (Project project : projects)
-        {
-            if (!isAssigned.get(project))
-            {
-                if (i < remainingProjects)
-                {
-                    freeStudents.get(i).setProject(project);
-                    i++;
-                }
-                else
-                {
-                    break;
-                }
-            }
-        }
-        return prefMap;
+        return finalAssignation;
     }
 
 

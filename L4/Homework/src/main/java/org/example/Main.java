@@ -25,9 +25,9 @@ public class Main {
         finalProjects.getStudentsHaving(target);
         System.out.println();
         
-        Map<Student,List<Project>> doneProjects = new HashMap<>();
-        doneProjects =finalProjects.assignProjects(projects);
-        for(Map.Entry<Student, List<Project>> liste : doneProjects.entrySet())
+        Map<Student,Project> doneProjects = new HashMap<>();
+        doneProjects = finalProjects.assignProjects(projects);
+        for(Map.Entry<Student, Project> liste : doneProjects.entrySet())
         {
             System.out.println(liste.getKey().getName()+" will play "+liste.getKey().getProjectName());
         }
