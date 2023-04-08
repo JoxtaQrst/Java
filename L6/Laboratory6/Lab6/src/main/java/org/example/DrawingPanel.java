@@ -28,7 +28,6 @@ public class DrawingPanel extends JPanel {
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                //TODO...
                 repaint();
             }
         });
@@ -36,8 +35,7 @@ public class DrawingPanel extends JPanel {
     private void createOffscreenImage() {
         image = new BufferedImage(W, H, BufferedImage.TYPE_INT_ARGB);
         graphics = image.createGraphics();
-        graphics.setRenderingHint(
-                RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setColor(Color.WHITE);
         graphics.fillRect(0, 0, 800, 600);
     }
@@ -52,9 +50,24 @@ public class DrawingPanel extends JPanel {
     }
 
     private void drawVertices() {
+       for(int i=0; i< numVertices; i++)
+       {
+           graphics.setColor(Color.BLACK);
+           graphics.fillOval(x[i],y[i],10,10);
+       }
     }
 
     private void drawLines() {
+        graphics.setColor(Color.BLACK);
+        for(int i=0; i < numVertices; i++)
+        {
+            for(int j=i+1;j < numVertices;j++)
+            {
+                graphics.drawLine(x[i]+5,y[i]+5,x[j]+5,y[j]+5);
+            }
+
+        }
+
     }
 
     private void createVertices() {

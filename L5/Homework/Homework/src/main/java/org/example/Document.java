@@ -1,3 +1,4 @@
+
 package org.example;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,10 +18,6 @@ public class Document {
         this.title=title;
         this.location=location;
     }
-
-    public Document() {
-    }
-
     public String getId() {
         return id;
     }

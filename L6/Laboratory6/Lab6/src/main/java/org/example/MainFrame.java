@@ -18,8 +18,9 @@ public class MainFrame extends JFrame {
 
         //create the components
         configPanel = new ConfigPanel(this);
-        canvas = new DrawingPanel(this);
         controlPanel = new ControlPanel(this);
+        canvas = new DrawingPanel(this);
+
 
         //arrange the components in the container (frame)
         add(canvas,BorderLayout.CENTER);

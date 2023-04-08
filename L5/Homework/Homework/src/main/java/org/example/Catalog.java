@@ -9,10 +9,6 @@ public class Catalog {
     public Catalog(String name){
         this.name=name;
     }
-
-    public Catalog() {
-    }
-
     public String getName() {
         return name;
     }

@@ -18,12 +18,7 @@ public class CatalogUtil {
     }
 
     public static void save(Catalog catalog,String fileName) throws IOException {
-        try{
-            OBJECT_MAPPER.writeValue(new File(fileName),catalog);
-        }
-        catch (IOException e){
-            System.err.println("Error saving catalog: " + e.getMessage());
-        }
+        OBJECT_MAPPER.writeValue(new File(fileName),catalog);
     }
     public static Catalog load(String filename) throws InvalidCatalogException, IOException {
         return OBJECT_MAPPER.readValue(new File(filename), Catalog.class);
