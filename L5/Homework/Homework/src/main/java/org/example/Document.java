@@ -3,6 +3,7 @@ package org.example;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.print.Doc;
 import java.lang.annotation.Documented;
 import java.util.*;
 
@@ -11,13 +12,18 @@ public class Document {
     private String title;
     private String location; // file name or web page
 
-    private Map<String,Object> tags = new HashMap<>();
+    private List<String> tags = new ArrayList<>();
 
-    public Document( String id, String title, String location){
+    public Document(){
+
+    }
+
+    public Document(String id, String title, String location){
         this.id=id;
         this.title=title;
         this.location=location;
     }
+
     public String getId() {
         return id;
     }
@@ -42,37 +48,26 @@ public class Document {
         this.location = location;
     }
 
-    public Map<String, Object> getTags() {
+    public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(Map<String, Object> tags) {
+    public void setTags(List<String> tags) {
         this.tags = tags;
     }
 
-    public void addTag(String key, Object obj){
-        tags.put(key, obj);
+    public void addTag(String tag) {
+        tags.add(tag);
     }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Document { id = ");
-        sb.append(id);
-        sb.append(", title = ");
-        sb.append(title);
-        sb.append(", location = ");
-        sb.append(location);
-        sb.append(", tags = {");
-        for (Map.Entry<String, Object> entry : tags.entrySet()) {
-            sb.append(entry.getKey());
-            sb.append(" = ");
-            sb.append(entry.getValue());
-            sb.append(", ");
-        }
-        if (!tags.isEmpty()) {
-            sb.delete(sb.length() - 2, sb.length());
-        }
-        sb.append("} }");
+        sb.append("Document { id = ").append(id)
+                .append(", title = ").append(title)
+                .append(", location = ").append(location)
+                .append(", tags = ").append(tags)
+                .append(" }");
         return sb.toString();
     }
 }

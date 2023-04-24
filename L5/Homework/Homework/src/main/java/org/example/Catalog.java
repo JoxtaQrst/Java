@@ -6,6 +6,9 @@ public class Catalog {
     private String name;
     private List<Document> documents = new ArrayList<>();
 
+    public Catalog(){
+
+    }
     public Catalog(String name){
         this.name=name;
     }

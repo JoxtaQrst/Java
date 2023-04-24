@@ -1,0 +1,9 @@
+{
+  "name" : "MyCatalog",
+  "documents" : [ {
+    "id" : "book1",
+    "title" : "Ruination",
+    "location" : "D:\\FacultateRandom\\Ruination_by_Anthony_Reynolds.pdf",
+    "tags" : [ "Fantasy" ]
+  } ]
+}

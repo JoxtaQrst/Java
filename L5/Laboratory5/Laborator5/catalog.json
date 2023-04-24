@@ -1,0 +1,17 @@
+{
+  "name":"MyDocuments",
+  "documents":[
+    {
+      "id":"article1",
+      "title":"Smecheru meu",
+      "location":"aodgao",
+      "tags":{}
+    },
+    {
+      "id":"book1",
+      "title":"Saigjewo",
+      "location":"oaskaogkasof",
+      "tags":{}
+    }
+  ]
+}
