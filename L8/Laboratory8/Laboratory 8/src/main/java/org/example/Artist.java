@@ -4,7 +4,13 @@ public class Artist {
     private int id;
     private String name;
 
-    public Artist() {
+    public Artist(){
+
+    }
+
+    public Artist(String name) {
+
+        this.name = name;
     }
 
     public int getId() {
@@ -21,5 +27,13 @@ public class Artist {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
